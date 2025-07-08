@@ -1,0 +1,7 @@
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\ThreadTest\bin\Debug\ThreadTest.exe.config
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\ThreadTest\bin\Debug\ThreadTest.exe
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\ThreadTest\bin\Debug\ThreadTest.pdb
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\ThreadTest\obj\Debug\ThreadTest.csproj.AssemblyReference.cache
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\ThreadTest\obj\Debug\ThreadTest.csproj.CoreCompileInputs.cache
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\ThreadTest\obj\Debug\ThreadTest.exe
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\ThreadTest\obj\Debug\ThreadTest.pdb
