@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4919016D-17BD-4FE8-887F-5D14944FE417}|06TaskAsync\\06TaskAsync.csproj|e:\\coding\\learning\\c#\\backend-learning\\backendprojects\\06taskasync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4919016D-17BD-4FE8-887F-5D14944FE417}|06TaskAsync\\06TaskAsync.csproj|solutionrelative:06taskasync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{13BEEB79-E568-4949-BC73-F00C1683A4E6}|05TaskAsync\\05TaskAsync.csproj|e:\\coding\\learning\\c#\\backend-learning\\backendprojects\\05taskasync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13BEEB79-E568-4949-BC73-F00C1683A4E6}|05TaskAsync\\05TaskAsync.csproj|solutionrelative:05taskasync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -36,18 +40,31 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
+              "DocumentMoniker": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\06TaskAsync\\Program.cs",
+              "RelativeDocumentMoniker": "06TaskAsync\\Program.cs",
+              "ToolTip": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\06TaskAsync\\Program.cs",
+              "RelativeToolTip": "06TaskAsync\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T17:48:32.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
               "DocumentMoniker": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\05TaskAsync\\Program.cs",
               "RelativeDocumentMoniker": "05TaskAsync\\Program.cs",
               "ToolTip": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\05TaskAsync\\Program.cs",
               "RelativeToolTip": "05TaskAsync\\Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAqwA8AAAAfAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwEMAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-09T15:02:46.647Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\04TaskAsync\\Program.cs",
               "RelativeDocumentMoniker": "04TaskAsync\\Program.cs",
@@ -60,7 +77,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\03TaskAsync\\Program.cs",
               "RelativeDocumentMoniker": "03TaskAsync\\Program.cs",
@@ -73,7 +90,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\02TaskAsync\\Program.cs",
               "RelativeDocumentMoniker": "02TaskAsync\\Program.cs",
