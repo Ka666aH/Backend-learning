@@ -53,6 +53,18 @@ namespace _03TaskAsync
                 if (taskResult >= 0) totalPageSize += taskResult;
             }
 
+            //Нейросетевой кринж
+            //// Создаем и запускаем все задачи
+            //Task<int>[] downloadTasks = urls.Select(DownloadPageSizeAsync).ToArray();
+
+            //// Ожидаем завершения всех задач
+            //await Task.WhenAll(downloadTasks);
+
+            //// Суммируем результаты
+            //int totalPageSize = downloadTasks
+            //    .Where(t => t.Status == TaskStatus.RanToCompletion && t.Result >= 0)
+            //    .Sum(t => t.Result);
+
             taskRunning = false;
             Console.WriteLine($"\nGetTotalPageSizeAsync закончился: Поток[{Thread.CurrentThread.ManagedThreadId}]. Задача[{Task.CurrentId}]");
             return totalPageSize;
