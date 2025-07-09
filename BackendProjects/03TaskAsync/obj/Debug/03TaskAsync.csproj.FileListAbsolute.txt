@@ -1,0 +1,7 @@
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\03TaskAsync\bin\Debug\03TaskAsync.exe.config
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\03TaskAsync\bin\Debug\03TaskAsync.exe
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\03TaskAsync\bin\Debug\03TaskAsync.pdb
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\03TaskAsync\obj\Debug\03TaskAsync.csproj.AssemblyReference.cache
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\03TaskAsync\obj\Debug\03TaskAsync.csproj.CoreCompileInputs.cache
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\03TaskAsync\obj\Debug\03TaskAsync.exe
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\03TaskAsync\obj\Debug\03TaskAsync.pdb
