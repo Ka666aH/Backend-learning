@@ -20,13 +20,12 @@ namespace _07TaskAsync
     {
         static async Task Main(string[] args)
         {
-            string[] urls = { 
+            string[] urls = {
                 "https://invalid.url", //нерабочий
                 "https://example.com", //рабочий
                 "https://google.com", //рабочий
                 "https://www.bybit.com/ru-RU/trade/*-/ETH/USDT", //бесконечная загрузка
             };
-
             try
             {
                 Console.WriteLine($"Загружаемые сайты:\n{string.Join("\n", urls)}");
@@ -63,8 +62,8 @@ namespace _07TaskAsync
                 {
                     Task<string> completedTask = (Task<string>)await Task.WhenAny(tasks);
                     tasks = tasks.Where(t => t != completedTask).ToArray();
-                    //string result = await completedTask;
-                    string result = completedTask.Result;
+                    string result = await completedTask;
+                    //string result = completedTask.Result;
                     //if (completedTask.Exception == null)
                     if (completedTask.Status == TaskStatus.RanToCompletion)
                     {
