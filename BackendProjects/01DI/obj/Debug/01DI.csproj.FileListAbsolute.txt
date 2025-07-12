@@ -1,0 +1,7 @@
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\bin\Debug\01DI.exe.config
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\bin\Debug\01DI.exe
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\bin\Debug\01DI.pdb
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\obj\Debug\01DI.csproj.AssemblyReference.cache
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\obj\Debug\01DI.csproj.CoreCompileInputs.cache
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\obj\Debug\01DI.exe
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\obj\Debug\01DI.pdb
