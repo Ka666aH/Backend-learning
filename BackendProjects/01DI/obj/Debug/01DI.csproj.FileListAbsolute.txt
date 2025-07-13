@@ -5,3 +5,4 @@ E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\obj\Debug\01DI.cspro
 E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\obj\Debug\01DI.csproj.CoreCompileInputs.cache
 E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\obj\Debug\01DI.exe
 E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\obj\Debug\01DI.pdb
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\01DI\obj\Debug\01DI.exe.config
