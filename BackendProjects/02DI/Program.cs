@@ -34,44 +34,85 @@ namespace _02DI
                     break;
                 default: throw new InvalidOperationException("Неизвестный логгер");
             }
+            services.AddTransient<IProcessPayment,ProcessPayment>();
+            services.AddTransient<IPaymentLogger, PaymentLogger>();
             services.AddTransient<PaymentProcessor>();
-            services.AddTransient<PaymentLogger>();
             var serviceProvider = services.BuildServiceProvider();
             var paymentProcessor = serviceProvider.GetRequiredService<PaymentProcessor>();
 
             //Создание платежей
             List<Payment> payments = new List<Payment>()
             {
-                new Payment (100.5m, PaymentType.Card),
+                new Payment (100.50m, PaymentType.Card),
                 new Payment(200m, PaymentType.Cash),
-                new Payment(450m, PaymentType.Card),
+                new Payment(449.99m, PaymentType.Card),
             };
             //Запуск параллельной обработки платежей
-            var paymentTasks = payments.Select(p => paymentProcessor.ProcessPaymentAsync(p)).ToArray();
+            var paymentTasks = payments.Select(p => paymentProcessor.MakePaymentAsync(p)).ToArray();
             await Task.WhenAll(paymentTasks);
             Console.ReadKey();
         }
         public class PaymentProcessor
         {
-            private readonly PaymentLogger paymentLogger;
-            public PaymentProcessor(PaymentLogger _paymentLogger)
+            private readonly IProcessPayment processPayment;
+            private readonly IPaymentLogger paymentLogger;
+
+            public PaymentProcessor(IProcessPayment _processPayment, IPaymentLogger _logPayment)
             {
-                paymentLogger = _paymentLogger;
+                processPayment = _processPayment;
+                paymentLogger = _logPayment;
             }
             //Обработка платежей
-            public async Task ProcessPaymentAsync(Payment p)
+            public async Task MakePaymentAsync(Payment p)
             {
-                await Task.Run(() =>
+                await processPayment.ProcessPaymentAsync();
+                await paymentLogger.LogPayment(p.Amount, p.PaymentType);
+            }
+        }
+
+        public interface IProcessPayment
+        {
+            Task ProcessPaymentAsync();
+        }
+
+        public class ProcessPayment : IProcessPayment
+        {
+            public async Task ProcessPaymentAsync()
+            {
+                await Task.Run(async() =>
                 {
                     //Отслеживание процесса обработки платежа
-                    Console.WriteLine($"Payment №{Task.CurrentId} started in {Thread.CurrentThread.ManagedThreadId} thread.");
-                    Task.Delay(1000);
-                    paymentLogger.LogPayment(p.Amount, p.PaymentType);
-                    Console.WriteLine($"Payment №{Task.CurrentId} ended in {Thread.CurrentThread.ManagedThreadId} thread.");
+                    int? taskId = Task.CurrentId;
+                    Console.WriteLine($"Payment №{taskId} started in {Thread.CurrentThread.ManagedThreadId} thread.");
+                    await Task.Delay(1000);
+                    Console.WriteLine($"Payment №{taskId} ended in {Thread.CurrentThread.ManagedThreadId} thread.");
                 });
             }
         }
-        //Оплата
+        public interface IPaymentLogger
+        {
+            Task LogPayment(decimal amount, PaymentType paymentType);
+        }
+
+        //Логгер оплаты
+        public class PaymentLogger : IPaymentLogger
+        {
+            private readonly ILogger logger;
+            public PaymentLogger(ILogger _logger)
+            {
+                logger = _logger;
+            }
+            public async Task LogPayment(decimal amount, PaymentType paymentType)
+            {
+                //Отслеживание процесса обработки платежа
+                await Task.Run(() =>
+                {
+                    Console.WriteLine($"Logging №{Task.CurrentId} started in {Thread.CurrentThread.ManagedThreadId} thread.");
+                    logger.Log($"{DateTime.Now} | ${amount} | {paymentType.ToString()}");
+                    Console.WriteLine($"Logging №{Task.CurrentId} ended in {Thread.CurrentThread.ManagedThreadId} thread.");
+                });
+            }
+        }
         public class Payment
         {
             public decimal Amount { get; private set; }
@@ -81,19 +122,6 @@ namespace _02DI
             {
                 Amount = _amount;
                 PaymentType = _paymentType;
-            }
-        }
-        //Логгер оплаты
-        public class PaymentLogger
-        {
-            private readonly ILogger logger;
-            public PaymentLogger(ILogger _logger)
-            {
-                logger = _logger;
-            }
-            public void LogPayment(decimal amount, PaymentType paymentType)
-            {
-                logger.Log($"{DateTime.Now} | ${amount} | {paymentType.ToString()}");
             }
         }
         //Типы оплаты
