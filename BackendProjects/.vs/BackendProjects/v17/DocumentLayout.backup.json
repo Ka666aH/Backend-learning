@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9A95EB25-19A1-4911-8F31-E0C290532CCF}|02DI\\02DI.csproj|e:\\coding\\learning\\c#\\backend-learning\\backendprojects\\02di\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A95EB25-19A1-4911-8F31-E0C290532CCF}|02DI\\02DI.csproj|solutionrelative:02di\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F5EBF163-EA05-4E67-A1E6-C8E7004D52DD}|03DI\\03DI.csproj|e:\\coding\\learning\\c#\\backend-learning\\backendprojects\\03di\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F5EBF163-EA05-4E67-A1E6-C8E7004D52DD}|03DI\\03DI.csproj|solutionrelative:03di\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A95EB25-19A1-4911-8F31-E0C290532CCF}|02DI\\02DI.csproj|e:\\coding\\learning\\c#\\backend-learning\\backendprojects\\02di\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9A95EB25-19A1-4911-8F31-E0C290532CCF}|02DI\\02DI.csproj|solutionrelative:02di\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{9A95EB25-19A1-4911-8F31-E0C290532CCF}|02DI\\02DI.csproj|e:\\coding\\learning\\c#\\backend-learning\\backendprojects\\02di\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A95EB25-19A1-4911-8F31-E0C290532CCF}|02DI\\02DI.csproj|solutionrelative:02di\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +18,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\03DI\\Program.cs",
+              "RelativeDocumentMoniker": "03DI\\Program.cs",
+              "ToolTip": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\03DI\\Program.cs",
+              "RelativeToolTip": "03DI\\Program.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAuwBYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T16:33:59.555Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -27,25 +41,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\02DI\\appsettings.json",
-              "RelativeDocumentMoniker": "02DI\\appsettings.json",
-              "ToolTip": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\02DI\\appsettings.json",
-              "RelativeToolTip": "02DI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-13T12:31:34.043Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\02DI\\Program.cs",
               "RelativeDocumentMoniker": "02DI\\Program.cs",
               "ToolTip": "E:\\CODING\\LEARNING\\C#\\Backend-learning\\BackendProjects\\02DI\\Program.cs",
               "RelativeToolTip": "02DI\\Program.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAewFcAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T10:02:35.294Z",
               "EditorCaption": ""
