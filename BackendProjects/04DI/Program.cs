@@ -4,31 +4,57 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+//Вариант 3 Scrutor
+using Scrutor;
 using static _04DI.Program;
 
 namespace _04DI
 {
     class Program
     {
+        public enum ConfigurationFields { Mode, Logger }
+        public enum ConfigurationMode { Standard, Logging }
+        public enum ConfigurationLogger { Console, File }
         static async Task Main(string[] args)
         {
             //Установка конфигурации приложения
             var config = new ConfigurationBuilder()
                             .AddInMemoryCollection(new Dictionary<string, string?>
                             {
-                                ["Mode"] = "Logging",
-                                ["Logger"] = "",
+                                //Вариант 2 Factory
+                                //[ConfigurationFields.Mode.ToString()] = ConfigurationMode.Logging.ToString(),
+                                [nameof(ConfigurationFields.Logger)] = nameof(ConfigurationLogger.Console),
                             })
                             .Build();
 
             //Получение режима работы (логгера) из конфигурации
-            string? loggerType = config["Logger"];
+            string? loggerType = config[nameof(ConfigurationFields.Logger)];
             var services = new ServiceCollection();
-            services.AddSingleton<IConfiguration>(config);
-            services.AddSingleton<IModeFactory, ModeFactory>();
+            //Вариант 3 Scrutor
+            switch (loggerType)
+            {
+                case nameof(ConfigurationLogger.Console):
+                    services.AddSingleton<ILogger, ConsoleLogger>();
+                    break;
+                case nameof(ConfigurationLogger.File):
+                    services.AddSingleton<ILogger, FileLogger>();
+                    break;
+                default:
+                    throw new InvalidOperationException("Неизвестный логгер");
+            }
+
+            //Вариант 3 Scrutor
+            services.AddTransient<IProcessPayment, ProcessPayment>();
+            services.Decorate<IProcessPayment, PaymentLoggingDecorator>();
+
+
+            //Вариант 2 Factory
+            //services.AddSingleton<IConfiguration>(config);
+            //services.AddSingleton<IModeFactory, ModeFactory>();
 
             //Вариант 1 Keyed Services
             //services.AddKeyedTransient<IProcessPayment>("standart", (sp, key) => new ProcessPayment());
@@ -41,8 +67,12 @@ namespace _04DI
 
             var serviceProvider = services.BuildServiceProvider();
 
-            var modeFactory = serviceProvider.GetRequiredService<IModeFactory>();
-            var processPaymentProcessor = modeFactory.Create();
+            //Вариант 3 Scrutor
+            var processPaymentProcessor = serviceProvider.GetRequiredService<IProcessPayment>();
+
+            //Вариант 2 Factory
+            //var modeFactory = serviceProvider.GetRequiredService<IModeFactory>();
+            //var processPaymentProcessor = modeFactory.Create();
 
             //Вариант 1 Keyed Services
             //var processPaymentProcessor = serviceProvider.GetRequiredKeyedService<IProcessPayment>("logging");
@@ -61,47 +91,48 @@ namespace _04DI
             Console.ReadKey();
         }
 
-        public interface IModeFactory
-        {
-            IProcessPayment Create();
-        }
-        public class ModeFactory : IModeFactory
-        {
-            private readonly IConfiguration config;
+        //Вариант 2 Factory
+        //public interface IModeFactory
+        //{
+        //    IProcessPayment Create();
+        //}
+        //public class ModeFactory : IModeFactory
+        //{
+        //    private readonly IConfiguration config;
 
-            public ModeFactory(IConfiguration _config)
-            {
-                config = _config;
-            }
+        //    public ModeFactory(IConfiguration _config)
+        //    {
+        //        config = _config;
+        //    }
 
-            public IProcessPayment Create()
-            {
-                IProcessPayment service;
+        //    public IProcessPayment Create()
+        //    {
+        //        IProcessPayment service;
 
-                switch (config["Mode"])
-                {
-                    case "Standard":
-                        service = new ProcessPayment();
-                        break;
+        //        switch (config[nameof(ConfigurationFields.Mode)])
+        //        {
+        //            case nameof(ConfigurationMode.Standard):
+        //                service = new ProcessPayment();
+        //                break;
 
-                    case "Logging":
-                        var loggerType = config["Logger"];
-                        ILogger logger = loggerType switch
-                        {
-                            "Console" => new ConsoleLogger(),
-                            "File" => new FileLogger(),
-                            _ => throw new InvalidOperationException("Неизвестный логгер")
-                        };
-                        service = new PaymentLoggingDecorator(new ProcessPayment(), logger);
-                        break;
+        //            case nameof(ConfigurationMode.Logging):
+        //                var loggerType = config["Logger"];
+        //                ILogger logger = loggerType switch
+        //                {
+        //                    nameof(ConfigurationLogger.Console) => new ConsoleLogger(),
+        //                    nameof(ConfigurationLogger.File) => new FileLogger(),
+        //                    _ => throw new InvalidOperationException("Неизвестный логгер")
+        //                };
+        //                service = new PaymentLoggingDecorator(new ProcessPayment(), logger);
+        //                break;
 
-                    default:
-                        throw new InvalidOperationException("Неизвестный режим");
-                }
+        //            default:
+        //                throw new InvalidOperationException("Неизвестный режим");
+        //        }
 
-                return service;
-            }
-        }
+        //        return service;
+        //    }
+        //}
 
         public interface IProcessPayment
         {

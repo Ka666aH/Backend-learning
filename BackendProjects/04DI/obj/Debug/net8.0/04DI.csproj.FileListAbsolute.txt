@@ -29,3 +29,5 @@ E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\04DI\obj\Debug\net8.0\ref
 E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\04DI\obj\Debug\net8.0\04DI.pdb
 E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\04DI\obj\Debug\net8.0\04DI.genruntimeconfig.cache
 E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\04DI\obj\Debug\net8.0\ref\04DI.dll
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\04DI\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+E:\CODING\LEARNING\C#\Backend-learning\BackendProjects\04DI\bin\Debug\net8.0\Scrutor.dll
