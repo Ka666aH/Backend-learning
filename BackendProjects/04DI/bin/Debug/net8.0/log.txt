@@ -1,0 +1,6 @@
+Payment №13 log started at 14.07.2025 14:45:40	Payment info:	|100,50	| Card
+Payment №16 log started at 14.07.2025 14:45:40	Payment info:	|200	| Cash
+Payment №19 log started at 14.07.2025 14:45:40	Payment info:	|449,99	| Card
+Payment №16 log ended at 14.07.2025 14:45:41	Payment info:	|200	| Cash
+Payment №19 log ended at 14.07.2025 14:45:41	Payment info:	|449,99	| Card
+Payment №13 log ended at 14.07.2025 14:45:41	Payment info:	|100,50	| Card
