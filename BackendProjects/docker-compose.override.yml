@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=tododb;Username=postgres;Password=mysecretpassword
+    ports:
+      - "5000:80"
+    depends_on:
+      - db
+    command: >
+      bash -c "dotnet ef database update --verbose
+      && dotnet ToDoAPIWithDB.dll"

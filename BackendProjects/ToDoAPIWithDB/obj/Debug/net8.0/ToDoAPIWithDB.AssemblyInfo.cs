@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ToDoAPIWithDB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4387de5d3aae1667b047c5146595853201fd1a8c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+379ad0969e597a6e96f3352555760afdb65ca379")]
 [assembly: System.Reflection.AssemblyProductAttribute("ToDoAPIWithDB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ToDoAPIWithDB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

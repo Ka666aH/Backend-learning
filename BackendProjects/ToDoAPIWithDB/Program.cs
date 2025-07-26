@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection;
 using System.Runtime.ExceptionServices;
 using ToDoAPIWithDB;
 
@@ -22,7 +23,18 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v2",
         Title = "ToDo API",
         Description = "An ASP.NET Core Minimal API for managing ToDo items"
+
+
     });
+    // Для Minimal API необходимо добавить документацию методов
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFilename);
+
+    if (File.Exists(xmlPath))
+    {
+        options.IncludeXmlComments(xmlPath);
+    }
+
 });
 builder.Services.AddScoped<IToDoRepository, EFToDoRepository>();
 var app = builder.Build();
@@ -30,8 +42,16 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwagger(options =>
+    {
+        options.RouteTemplate = "swagger/{documentName}/swagger.json";
+    });
+
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v2/swagger.json", "Todo API v2");
+        options.RoutePrefix = "swagger";
+    });
 }
 
 app.UseHttpsRedirection();
@@ -39,6 +59,15 @@ app.UseHttpsRedirection();
 //app.UseAuthorization();
 
 //app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.Migrate(); // Автоматическое применение миграций
+}
+
+// Настройка портов Kestrel
+app.Urls.Add("http://*:80");
 
 app.MapGet("/tasks", async (IToDoRepository repository) =>
 {
